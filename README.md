@@ -1,5 +1,5 @@
 # About RedditNoBot
-Bot per il subreddit r/SabakuNoMaiku. Il codice comprende una serie di metodi utili per cancellare post, calcolare la durata di una playlist intera ed altro ancora. Il codice comprende [|l'API di Youtube](https://developers.google.com/youtube/v3) e [PRAW](https://praw.readthedocs.io/en/stable/index.html). 
+Bot per il subreddit r/SabakuNoMaiku. Il codice comprende una serie di metodi utili per cancellare post, calcolare la durata di una playlist intera ed altro ancora. Il codice comprende [l'API di Youtube](https://developers.google.com/youtube/v3) e [PRAW](https://praw.readthedocs.io/en/stable/index.html). 
 
 A reddit bot for r/SabakuNoMaiku. The code contains a series of utility method to delete post from Reddit or calculating the duration of a playlist and other things. The code make use of [Youtube API](https://developers.google.com/youtube/v3) and [PRAW](https://praw.readthedocs.io/en/stable/index.html).
 
