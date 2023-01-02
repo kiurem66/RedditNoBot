@@ -12,7 +12,8 @@ La cartella di installazione del bot è `/opt/SabakuNoBot`, si può cambiare mod
 
 Il file BotReddit.py contiene tutti gli script che vengono utilizzati. Per utilizzare il bot è sufficiente eseguire il file startBot.sh tramite `./startBot.sh` oppure manualmente attivando il virtual environment e `python /pathto/BotReddit.py`.
 
-EN
+EN:
+
 To install the bot, clone or download the repository and use the [Makefile](https://github.com/kiurem66/RedditNoBot/blob/main/Makefile). To use the makefile, via terminal go to the directory where you saved the repository and inside use `sudo make install` or as root `make install`, after that wait till installation is done. 
 **DISCLAIMER**: You need to run `make install` with sudo or as root otherwise it won't work.
 The installation folder of the bot is `/opt/SabakuNoBot`, you can change it by changing, the BASE variable inside Makefile. You can delete everything via `sudo make clean` or running as root `make clean`, or deleting the installation folder. For help use `make help`. 
