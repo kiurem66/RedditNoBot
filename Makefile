@@ -28,8 +28,9 @@ install:
 	@echo "Install done"
 
 setup:
-	@cd $(BASE)/$(VENV_NAME)
-	git clone https://github.com/kiurem66/RedditNoBot.git
+	@mv BotReddit.py $(BASE)/$(VENV_NAME)
+	@mv RedditModule.py $(BASE)/$(VENV_NAME)
+	@mv YoutubeModule.py $(BASE)/$(VENV_NAME)
 
 requirements:
 	$(BASE)/$(VENV_NAME)/bin/pip install -r requirements.txt
