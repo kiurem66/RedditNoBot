@@ -28,9 +28,10 @@ install:
 	@echo "Install done"
 
 setup:
-	@mv BotReddit.py $(BASE)/$(VENV_NAME)
-	@mv RedditModule.py $(BASE)/$(VENV_NAME)
-	@mv YoutubeModule.py $(BASE)/$(VENV_NAME)
+	@mv Moduli/BotReddit.py $(BASE)/$(VENV_NAME)
+	@mv Moduli/RedditModule.py $(BASE)/$(VENV_NAME)
+	@mv Moduli/YoutubeModule.py $(BASE)/$(VENV_NAME)
+	@mv Moduli/TwitchModule.py $(BASE)/$(VENV_NAME)
 
 requirements:
 	$(BASE)/$(VENV_NAME)/bin/pip install -r requirements.txt
