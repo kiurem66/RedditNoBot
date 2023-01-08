@@ -32,6 +32,7 @@ Author:
 """
 import requests
 import json
+import os.path
 
 def get_oauth(client_id,client_secret):
     """Funzione per ottenere un access token
@@ -56,7 +57,7 @@ def get_oauth(client_id,client_secret):
     }
     r = requests.post('https://id.twitch.tv/oauth2/token', body)
     keys = r.json();
-    with open("keys.json", "w") as output:
+    with open("/tmp/keys.json", "w") as output:
         json.dump(keys, output)
     return keys
 
@@ -78,9 +79,11 @@ def get_stream_info(client_id, client_secret, streamer):
     dict
         Dictionary contenente informazioni utili
     """
-
-    with open("keys.json", "r") as f:
-        keys=json.load(f)
+    if(os.path.exists("/tmp/keys.json")):
+        with open("/tmp/keys.json", "r") as f:
+            keys=json.load(f)
+    else:
+        keys=get_oauth(client_id, client_secret)
     headers = {
         'Client-ID': client_id,
         'Authorization': 'Bearer ' + keys['access_token']
@@ -89,11 +92,9 @@ def get_stream_info(client_id, client_secret, streamer):
     if(stream.status_code==200):
        stream_data = stream.json()
        if len(stream_data['data']) == 1:
-            print('Sabaku è in live')
             game = stream_data['data'][0]['game_name']
             title = stream_data['data'][0]['title']
-            print("Gioco: " + game)
-            print("Titolo: " + title)
+            return game,title
     else:
         keys=get_oauth(client_id,client_secret)
         headers = {
@@ -103,13 +104,9 @@ def get_stream_info(client_id, client_secret, streamer):
         new_stream = requests.get('https://api.twitch.tv/helix/streams?user_login=' + target_streamer, headers=headers)
         stream_data = new_stream.json()
         if len(stream_data['data']) == 1:
-            print('Sabaku è in live')
             game = stream_data['data'][0]['game_name']
             title = stream_data['data'][0]['title']
-            print("Gioco: " + game)
-            print("Titolo: " + title)
-            print(stream_data)
-
+            return game,title
 
 def is_stream_off(client_id, client_secret, streamer):
     """Funzione per verificare se uno streamer è in live
@@ -128,8 +125,11 @@ def is_stream_off(client_id, client_secret, streamer):
     Boolean
         True se lo streamer è offline, false altrimenti  
     """
-    with open("keys.json", "r") as f:
-        keys=json.load(f)
+    if(os.path.exists("/tmp/keys.json")):
+        with open("/tmp/keys.json", "r") as f:
+            keys=json.load(f)
+    else:
+        keys=get_oauth(client_id, client_secret)
     headers = {
         'Client-ID': client_id,
         'Authorization': 'Bearer ' + keys['access_token']
