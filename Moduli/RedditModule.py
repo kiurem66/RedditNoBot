@@ -7,7 +7,7 @@ Questo modulo contiene le seguenti funzioni:
 License:
     MIT License
 
-    Copyright (c) 2022 Matteo Orlando
+    Copyright (c) 2023 Matteo Orlando
 
     Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the "Software"), to deal
@@ -27,10 +27,9 @@ License:
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
     SOFTWARE.
 
-Author: 
+Author:
     Matteo Orlando
 """
-import datetime
 
 
 def get_number_post_comment(reddit_instance, submission_id):
@@ -73,12 +72,9 @@ def delete_specific_post(reddit_instance, sub, flair, min_comment, post_limit):
     """
     subreddit = reddit_instance.subreddit(sub)
     for submission in subreddit.new(limit=post_limit):
-        now = datetime.datetime.now()
-        dt = datetime.datetime.fromtimestamp(submission.created_utc)
-        hours_passed = (now-dt).total_seconds()/3600
         if submission.link_flair_template_id == flair and get_number_post_comment(reddit_instance,submission.id) < min_comment:
             submission.mod.remove()
 
 
-def submit_post_no_text(reddit_instance,sub,title,flair): 
+def submit_post_no_text(reddit_instance,sub,title,flair):
     reddit_instance.subreddit(sub).submit(title, url="https://www.twitch.tv/sabaku_no_sutoriimaa", flair_id=flair)
