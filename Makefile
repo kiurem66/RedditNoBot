@@ -13,11 +13,10 @@ help:
 	@echo "make help"
 	@echo "		Display help"
 	@echo "make install"
-	@echo "		Install everything needed"
+	@echo "		Install everything"
 	@echo "make clean"
 	@echo "		Delete all the files"
 	@echo "--------------"
-
 
 install:
 	@mkdir $(BASE)
@@ -28,10 +27,12 @@ install:
 	@echo "Install done"
 
 setup:
-	@mv Moduli/BotReddit.py $(BASE)/$(VENV_NAME)
+	@mv BotReddit.py $(BASE)/$(VENV_NAME)
 	@mv Moduli/RedditModule.py $(BASE)/$(VENV_NAME)
 	@mv Moduli/YoutubeModule.py $(BASE)/$(VENV_NAME)
 	@mv Moduli/TwitchModule.py $(BASE)/$(VENV_NAME)
+	@mv streamon.sh $(BASE)/$(VENV_NAME)
+	@mv streamoff.sh $(BASE)/$(VENV_NAME)
 
 requirements:
 	$(BASE)/$(VENV_NAME)/bin/pip install -r requirements.txt

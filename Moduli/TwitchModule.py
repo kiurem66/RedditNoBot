@@ -94,7 +94,9 @@ def get_stream_info(client_id, client_secret, streamer):
        if len(stream_data['data']) == 1:
             game = stream_data['data'][0]['game_name']
             title = stream_data['data'][0]['title']
-            return game,title
+            return True,game,title
+       else:
+            return False,None,None
     else:
         keys=get_oauth(client_id,client_secret)
         headers = {
@@ -106,7 +108,9 @@ def get_stream_info(client_id, client_secret, streamer):
         if len(stream_data['data']) == 1:
             game = stream_data['data'][0]['game_name']
             title = stream_data['data'][0]['title']
-            return game,title
+            return True,game,title
+        else:
+            return False,None,None
 
 def is_stream_off(client_id, client_secret, streamer):
     """Funzione per verificare se uno streamer è in live
