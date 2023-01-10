@@ -6,6 +6,7 @@ if [ $status == "offline" ];then
 	exit_code=$?
 	if [ $exit_code -eq 0 ];then
 		echo "online" > $status_file
+		date
 	fi
 else
 	exit 0
