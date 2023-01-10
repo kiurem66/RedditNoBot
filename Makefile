@@ -33,6 +33,8 @@ setup:
 	@mv Moduli/TwitchModule.py $(BASE)/$(VENV_NAME)
 	@mv streamon.sh $(BASE)/$(VENV_NAME)
 	@mv streamoff.sh $(BASE)/$(VENV_NAME)
+	@touch /var/log/stream.status.log
+	@echo "online" > /var/log/stream.status.log
 
 requirements:
 	$(BASE)/$(VENV_NAME)/bin/pip install -r requirements.txt
