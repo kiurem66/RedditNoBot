@@ -19,29 +19,22 @@ help:
 	@echo "--------------"
 
 install:
-	@$(MAKE) must
 	@mkdir $(BASE)
-	@python -m venv $(BASE)/$(VENV_NAME)
+	@python3 -m venv $(BASE)/$(VENV_NAME)
 	@source $(BASE)/$(VENV_NAME)/bin/activate
 	@$(MAKE) requirements
 	@$(MAKE) setup
 	@echo "Install done"
 
 setup:
-	@mv BotReddit.py $(BASE)/$(VENV_NAME)
-	@mv Moduli/RedditModule.py $(BASE)/$(VENV_NAME)
-	@mv Moduli/YoutubeModule.py $(BASE)/$(VENV_NAME)
-	@mv Moduli/TwitchModule.py $(BASE)/$(VENV_NAME)
-	@mv streamon.sh $(BASE)/$(VENV_NAME)
-	@mv streamoff.sh $(BASE)/$(VENV_NAME)
+	@cp BotReddit.py $(BASE)/$(VENV_NAME)
+	@cp Moduli/RedditModule.py $(BASE)/$(VENV_NAME)
+	@cp Moduli/YoutubeModule.py $(BASE)/$(VENV_NAME)
+	@cp Moduli/TwitchModule.py $(BASE)/$(VENV_NAME)
+	@cp streamon.sh $(BASE)/$(VENV_NAME)
+	@cp streamoff.sh $(BASE)/$(VENV_NAME)
 	@touch /var/log/stream.status.log
 	@echo "online" > /var/log/stream.status.log
-
-must:
-	@apt install software-properties-common -y
-	@add-apt-repository ppa:deadsnakes/ppa
-	@apt update
-	@apt install python3.10
 
 requirements:
 	$(BASE)/$(VENV_NAME)/bin/pip install -r requirements.txt
