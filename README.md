@@ -6,6 +6,13 @@ A reddit bot for r/SabakuNoMaiku. The code contains a series of utility method t
 
 
 ---
+
+# Requirements
+- Python version >=3.10
+- make
+
+---
+
 ## Installation and running
 Per installare il bot, occorre scaricare o clonare la repository e utilizzare [Makefile](https://github.com/kiurem66/RedditNoBot/blob/main/Makefile). Per avviare la procedura di installazione, eseguire `sudo make install` oppure essendo root, `make install`.
 La cartella di installazione del bot è `/opt/SabakuNoBot`, si può cambiare modificando la variabile BASE all'interno del Makefile. Per eliminare il bot e tutti i suoi file si può eseguire `sudo make clean` oppure come root `make clean` o cancellando manualmente la cartella di installazione. È possibile usare `make help` per mostrare un piccolo aiuto.
@@ -15,9 +22,9 @@ Il file [BotReddit.py](https://github.com/kiurem66/RedditNoBot/blob/main/BotRedd
 
 EN:
 
-To install the bot, clone or download the repository and use the [Makefile](https://github.com/kiurem66/RedditNoBot/blob/main/Makefile). To use the makefile, run `sudo make install` or as root `make install`. The installation folder of the bot is `/opt/SabakuNoBot`, you can change it by changing, the BASE variable inside Makefile. You can delete everything via `sudo make clean` or running as root `make clean`, or deleting the installation folder manualy. For help use `make help`. 
+To install the bot, clone or download the repository and use the [Makefile](https://github.com/kiurem66/RedditNoBot/blob/main/Makefile). To use the makefile, run `sudo make install` or as root `make install`. The installation folder of the bot is `/opt/SabakuNoBot`, you can change it by changing, the BASE variable inside Makefile. You can delete everything via `sudo make clean` or running as root `make clean`, or deleting the installation folder manualy. For help use `make help`.
 **DISCLAIMER**: You need to run `make install`  with root permission otherwise it won't work.
 
-The [BotReddit.py](https://github.com/kiurem66/RedditNoBot/blob/main/BotReddit.py) file contains it's used to run the functions written in the modules. The idea is to get comands as input and execute specific scripts. The [streamon.sh](https://github.com/kiurem66/RedditNoBot/blob/main/streamon.sh) and [streamoff.sh](https://github.com/kiurem66/RedditNoBot/blob/main/streamoff.sh) files are used with cron to monitor the online/offline status of the target streamer.
+The [BotReddit.py](https://github.com/kiurem66/RedditNoBot/blob/main/BotReddit.py) file it's used to run the functions written in the modules. The idea is to get comands as input and execute specific scripts. The [streamon.sh](https://github.com/kiurem66/RedditNoBot/blob/main/streamon.sh) and [streamoff.sh](https://github.com/kiurem66/RedditNoBot/blob/main/streamoff.sh) files are used with cron to monitor the online/offline status of the target streamer.
 
 ---

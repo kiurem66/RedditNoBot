@@ -19,6 +19,7 @@ help:
 	@echo "--------------"
 
 install:
+	@$(MAKE) must
 	@mkdir $(BASE)
 	@python -m venv $(BASE)/$(VENV_NAME)
 	@source $(BASE)/$(VENV_NAME)/bin/activate
@@ -36,11 +37,20 @@ setup:
 	@touch /var/log/stream.status.log
 	@echo "online" > /var/log/stream.status.log
 
+must:
+	@apt install software-properties-common -y
+	@add-apt-repository ppa:deadsnakes/ppa
+	@apt update
+	@apt install python3.10
+
 requirements:
 	$(BASE)/$(VENV_NAME)/bin/pip install -r requirements.txt
 
 clean:
 	@rm -rf $(BASE)
+	if [ -e /var/log/steam.status.log ];then
+		@rm /var/log/stream.status.log
+	fi
 	@echo "Files deleted"
 
 .PHONY: help install clean
