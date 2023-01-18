@@ -8,9 +8,9 @@ A reddit bot for r/SabakuNoMaiku. The code contains a series of utility method t
 ---
 
 # Requirements
-- Python version >=3.10
+- Python version 3.10+
 - make
-
+- Python3-venv
 ---
 
 ## Installation and running
@@ -20,11 +20,16 @@ La cartella di installazione del bot è `/opt/SabakuNoBot`, si può cambiare mod
 
 Il file [BotReddit.py](https://github.com/kiurem66/RedditNoBot/blob/main/BotReddit.py) viene utilizzato come script principale da cui utilizzare i metodi scritti nei moduli. L'idea è quella di ricevere un comando tramite input e di agire di conseguenza. I file [streamon.sh](https://github.com/kiurem66/RedditNoBot/blob/main/streamon.sh) e [streamoff.sh](https://github.com/kiurem66/RedditNoBot/blob/main/streamoff.sh) vengono impiegati tramite il daemon cron per monitorare lo stato online/offline dello streamer d'interesse.
 
+Infine il file [Cypher.py](https://github.com/kiurem66/RedditNoBot/blob/main/Cypher.py), è utile per realizzare il file che memorizza le credenziali varie che il Bot impiega.
+
 EN:
 
 To install the bot, clone or download the repository and use the [Makefile](https://github.com/kiurem66/RedditNoBot/blob/main/Makefile). To use the makefile, run `sudo make install` or as root `make install`. The installation folder of the bot is `/opt/SabakuNoBot`, you can change it by changing, the BASE variable inside Makefile. You can delete everything via `sudo make clean` or running as root `make clean`, or deleting the installation folder manualy. For help use `make help`.
 **DISCLAIMER**: You need to run `make install`  with root permission otherwise it won't work.
 
 The [BotReddit.py](https://github.com/kiurem66/RedditNoBot/blob/main/BotReddit.py) file it's used to run the functions written in the modules. The idea is to get comands as input and execute specific scripts. The [streamon.sh](https://github.com/kiurem66/RedditNoBot/blob/main/streamon.sh) and [streamoff.sh](https://github.com/kiurem66/RedditNoBot/blob/main/streamoff.sh) files are used with cron to monitor the online/offline status of the target streamer.
+
+The file [Cypher.py](https://github.com/kiurem66/RedditNoBot/blob/main/Cypher.py), can be used to store credentials as the Bot request.
+
 
 ---

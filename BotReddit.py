@@ -37,9 +37,12 @@ def main():
     match command:
         case "online check":
             info=get_stream_info(CLIENT_ID_TWITCH,CLIENT_SECRET_TWITCH,STREAMER)
-            title="Siamo Live! || " + info[0] + " || " + info[1]
-            submit_post_no_text(reddit,SUBREDDIT,title,FLAIR_LIVE)
-            sys.exit(0)
+            if(info[0]):
+                title="Siamo Live! || " + info[1] + " || " + info[2]
+                submit_post_no_text(reddit,SUBREDDIT,title,FLAIR_LIVE)
+                sys.exit(0)
+            else:
+                sys.exit(1)
         case "remove post":
             delete_specific_post(reddit,SUBREDDIT,FLAIR_LIVE,MIN_COM,POST_LIMIT)
             sys.exit(0)
