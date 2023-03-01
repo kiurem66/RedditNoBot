@@ -1,4 +1,6 @@
 # About RedditNoBot
+**NOTE: The repository has been moved to [Teor0 fork](https://github.com/teor0/ScriptsRedditBot)**.
+
 Bot per il subreddit r/SabakuNoMaiku. Il codice comprende una serie di metodi utili per cancellare post da Reddit, estrapolare informazioni utili da una live Twitch, calcolare la durata di una playlist intera ed altro ancora. Il codice comprende l'utilizzo di: [API Youtube](https://developers.google.com/youtube/v3) e [PRAW](https://praw.readthedocs.io/en/stable/index.html).
 
 EN:
